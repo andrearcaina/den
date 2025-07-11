@@ -15,6 +15,9 @@ services:
     build:
       context: ..
       dockerfile: services/auth-service/Dockerfile
+    volumes:
+        - ../services/auth-service:/app/services/auth-service
+        - ../shared:/app/shared
     ports:
       - "8081:8081"
 
@@ -22,6 +25,9 @@ services:
     build:
       context: ..
       dockerfile: services/user-service/Dockerfile
+    volumes:
+      - ../services/user-service:/app/services/user-service
+      - ../shared:/app/shared
     ports:
       - "8082:8082"
 
